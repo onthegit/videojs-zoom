@@ -47,11 +47,13 @@ export class ZoomGesture extends Component {
 		});
 		this.player.addEventListener("wheel", event => {
 			event.stopPropagation();
+			event.preventDefault();
 			if (!this._enabled) return;
 			this.function.zoomHandler(-1e-2 * event.deltaY);
 			this.function.moveY(0);
 			this.function.moveX(0);
-		});
+		},
+		{ capture: true });
 	}
 
 }
