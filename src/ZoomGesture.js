@@ -33,6 +33,9 @@ export class ZoomGesture extends Component {
 		}
 		this._observer.subscribe('plugin', state => {
 			this._enabled = state.enabled;
+			if (!this._enabled && this.function) {
+				this.function.reset()
+			}
 		});
 	}
 
@@ -66,6 +69,6 @@ export class ZoomGesture extends Component {
 			this.function.moveY(0);
 			this.function.moveX(0);
 		},
-		{ capture: true });
+			{ capture: true });
 	}
 }
