@@ -55,5 +55,4 @@ export class ZoomGesture extends Component {
 		},
 		{ capture: true });
 	}
-
 }
