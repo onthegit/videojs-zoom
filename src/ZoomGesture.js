@@ -9,15 +9,28 @@ export class ZoomGesture extends Component {
 
 	constructor(player, options) {
 		super(player, options);
-		this._enabled = false;
+		this.loaded = false
+		this._enabled = true;
 		this._observer = Observer.getInstance();
 		this.pointers = {};
 		this.player = player.el();
 		this.state = options.state;
 		this.function = new ZoomFunction(player, options);
+
 		player.on("loadstart", () => {
+			if (this.loaded) {
+				return
+			}
+			this.loaded = true
 			this.gesture();
 		});
+		if (player.readyState() > 0) {
+			if (this.loaded) {
+				return
+			}
+			this.loaded = true
+			this.gesture()
+		}
 		this._observer.subscribe('plugin', state => {
 			this._enabled = state.enabled;
 		});

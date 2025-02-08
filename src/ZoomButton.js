@@ -30,6 +30,5 @@ export class ZoomButton extends Button {
 		this.isOpen = !this.isOpen;
 		modal.toggle();
 	}
-
 }
 
