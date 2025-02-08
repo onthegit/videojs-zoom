@@ -39,8 +39,8 @@ export class ZoomFunction {
 	zoomOut() {
 		const zoom = Math.max(1, this.state.zoom - ZOOM_SALT);
 		this._zoom(Number(zoom.toFixed(1)));
-		Math.sign(this.state.moveY) === 1 ? this.moveUp() : this.moveDown();
-		Math.sign(this.state.moveX) === 1 ? this.moveLeft() : this.moveRight();
+		// Math.sign(this.state.moveY) === 1 ? this.moveUp() : this.moveDown();
+		// Math.sign(this.state.moveX) === 1 ? this.moveLeft() : this.moveRight();
 	}
 
 	zoomHandler(salt) {
