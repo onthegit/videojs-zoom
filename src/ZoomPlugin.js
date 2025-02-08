@@ -30,14 +30,22 @@ class ZoomPlugin extends Plugin {
 		this.player = player;
 		this.playerEl = player.el();
 		this.listeners = {
-			click: () => {},
-			change: () => {},
+			click: () => { },
+			change: () => { },
 		};
 		this.playerEl.style.overflow = "hidden";
 		this.state = Object.assign(DEFAULT_OPTIONS, options);
 		this.state.flip = "+";
 		if (this.state.showZoom || this.state.showMove || this.state.showRotate) {
-			this.player.getChild("ControlBar").addChild("ZoomButton");
+			const controlBar = this.player.getChild("ControlBar")
+			if (controlBar) {
+				if (options.addZoomButtonBeforeLastButton) {
+					controlBar.addChild("ZoomButton", {}, controlBar.children().length - 1);
+				}
+				if (!options.addZoomButtonBeforeLastButton) {
+					controlBar.addChild("ZoomButton");
+				}
+			}
 			this.player.addChild("ZoomModal", { plugin: this, state: this.state });
 		}
 		if (this.state.gestureHandler) {
@@ -84,7 +92,7 @@ class ZoomPlugin extends Plugin {
 	}
 
 	_setTransform() {
-		const [ video ] = this.playerEl.getElementsByTagName("video");
+		const [video] = this.playerEl.getElementsByTagName("video");
 		video.style.transform = `
 			translate(${this.state.moveX}px, ${this.state.moveY}px) 
 			scale(${this.state.flip}${this.state.zoom}, ${this.state.zoom}) 
