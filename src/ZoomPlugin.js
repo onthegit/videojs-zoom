@@ -62,7 +62,8 @@ class ZoomPlugin extends Plugin {
 		if (value <= 0) {
 			throw new Error("Zoom value invalid");
 		}
-		if (this.player && this.state && !this.gestureAdded) {
+		
+		if (value != 1 && this.player && this.state && !this.gestureAdded) {
 			this.gestureAdded = true
 			this.state.gestureHandler = true
 			this.player.addChild("ZoomGesture", { plugin: this, state: this.state });
