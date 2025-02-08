@@ -40,10 +40,10 @@ class ZoomPlugin extends Plugin {
 			const controlBar = this.player.getChild("ControlBar")
 			if (controlBar) {
 				if (options.addZoomButtonBeforeLastButton) {
-					controlBar.addChild("ZoomButton", {}, controlBar.children().length - 1);
+					controlBar.addChild("ZoomButton", { title: 'Zoom Options' }, controlBar.children().length - 1);
 				}
 				if (!options.addZoomButtonBeforeLastButton) {
-					controlBar.addChild("ZoomButton");
+					controlBar.addChild("ZoomButton", { title: 'Zoom Options' });
 				}
 			}
 			this.player.addChild("ZoomModal", { plugin: this, state: this.state });
@@ -63,7 +63,7 @@ class ZoomPlugin extends Plugin {
 			throw new Error("Zoom value invalid");
 		}
 		if (this.player && this.state && !this.gestureAdded) {
-  		this.gestureAdded = true
+			this.gestureAdded = true
 			this.state.gestureHandler = true
 			this.player.addChild("ZoomGesture", { plugin: this, state: this.state });
 		}
