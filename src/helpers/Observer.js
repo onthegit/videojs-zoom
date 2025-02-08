@@ -6,6 +6,11 @@ export class Observer {
 		this._listeners = [];
 	}
 
+	static destroy() {
+		this._listeners = []
+		Observer._instance = undefined
+	}
+
 	static getInstance() {
 		if (!Observer._instance) {
 			Observer._instance = new Observer();
@@ -24,5 +29,4 @@ export class Observer {
 			}
 		});
 	}
-
 }
