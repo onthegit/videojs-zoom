@@ -11,7 +11,8 @@ window.onload = () => {
 		showZoom: true,
 		showMove: true,
 		showRotate: true,
-		gestureHandler: true
+		gestureHandler: true,
+		addZoomButtonBeforeLastButton: true,
 	});
 	zoomPlugin.listen('click', () => {
 		console.log('onclick');
