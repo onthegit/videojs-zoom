@@ -20,6 +20,7 @@
 		}
 	},
 	"scripts": {
+		"prepare": "yarn build",
 		"build": "yarn clean && yarn build:js && yarn build:css",
 		"build:js": "rollup -c",
 		"build:css": "mv dist/plugin.css dist/videojs-zoom.css ",
