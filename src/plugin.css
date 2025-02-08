@@ -33,11 +33,11 @@
 }
 
 .video-js .vjs-zoom-duck-7 .vjs-icon-placeholder:before {
-	content: "\f110";
+	content: "O";
 }
 
 .video-js .vjs-zoom-duck-8 .vjs-icon-placeholder:before {
-	content: "\f114";
+	content: "0";
 }
 
 .video-js .vjs-zoom-duck__container {
