@@ -40,10 +40,10 @@ class ZoomPlugin extends Plugin {
 			const controlBar = this.player.getChild("ControlBar")
 			if (controlBar) {
 				if (options.addZoomButtonBeforeLastButton) {
-					controlBar.addChild("ZoomButton", { title: 'Zoom Options' }, controlBar.children().length - 1);
+					controlBar.addChild("ZoomButton", { text: 'Zoom Options' }, controlBar.children().length - 1);
 				}
 				if (!options.addZoomButtonBeforeLastButton) {
-					controlBar.addChild("ZoomButton", { title: 'Zoom Options' });
+					controlBar.addChild("ZoomButton", { text: 'Zoom Options' });
 				}
 			}
 			this.player.addChild("ZoomModal", { plugin: this, state: this.state });
