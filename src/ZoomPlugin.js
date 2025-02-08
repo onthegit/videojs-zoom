@@ -131,7 +131,7 @@ class ZoomPlugin extends Plugin {
 		modal.classList.remove("open");
 		const observer = Observer.getInstance();
 		observer.notify("plugin", { enabled: this._enabled });
-		observer.destroy()
+		Observer.destroy()
 	}
 
 	handleStateChanged(event) { }
